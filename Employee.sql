@@ -1,13 +1,11 @@
 
-Link to Quickdatabasediagrams https://app.quickdatabasediagrams.com/#/d/0Mb0NQ
-
---1. List the following details of each employee: employee number, last name, first name, gender, and salary.
+--1. List details of each employee: employee number, last name, first name, gender, and salary.
 SELECT emp_no, last_name, first_name, gender 
 FROM employees;
 
 SELECT *
 FROM salaries;
---join employees and salary tables
+
 SELECT
     e.emp_no, e.last_name, e.first_name, e.gender, s.salary
 FROM
@@ -26,9 +24,7 @@ WHERE hire_date BETWEEN '1986-01-01' AND '1987-01-01'
 
 
 --3. List the manager of each department with the following information: 
---department number, department name,  >> departments
---the manager's employee number, last name, first name >> employees
---start and end employment dates >> dept_manager
+--department number, department name, manager's employee number, manager's last name, manager's first name, manager's start and end employment dates
 
 SELECT * FROM departments;
 
@@ -52,8 +48,7 @@ INNER JOIN employees ON employees.emp_no = dept_manager.emp_no;
 
 
 --4. List the department of each employee with the following information: 
---employee number, last name, first name  >> employees
---department name >> dept_emp
+--employee number, last name, first name, department name
 
 SELECT * FROM employees;
 
@@ -78,10 +73,7 @@ SELECT *
 FROM employees 
 WHERE first_name = 'Hercules'  AND last_name LIKE 'B%'
 
---6. List all employees in the Sales department, 
---including their employee number, last name, first name  >> employees
---department name >> departments
--- dept_emp
+--6. List all employees in the sales department, including their employee number, last name, first name, and department name
 
 SELECT * FROM employees;
 
@@ -98,10 +90,8 @@ JOIN dept_emp ON employees.emp_no = dept_emp.emp_no
 JOIN departments ON dept_emp.dept_no = departments.dept_no
 WHERE departments.dept_name = 'Sales';
 
---7. List all employees in the 
--- Sales and Development departments  >> departments (d005 & d007)
--- including their employee number, last name, first name >>  employees
--- department name >> 
+--7. List all employees in the sales and development departments
+-- including their employee number, last name, first name, and department name
 
 SELECT * FROM employees;
 
